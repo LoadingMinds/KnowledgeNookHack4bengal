@@ -13,7 +13,7 @@ const Navbar = () => {
         </div>
         <div className="flex items-center">
           <li className="mx-2 md:mx-12">
-            <a href="/profile" className="block">
+            <a href="/login" className="block">
               <Image
                 src="/assets/avatar1.svg"
                 alt="Profile"
