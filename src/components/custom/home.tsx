@@ -37,7 +37,7 @@ export const projects = [
     title: "Computer Science & Engineering ",
     description:
       "Involves studying and applying computer software and hardware principles, including programming, algorithms, and system design.",
-    link: "https://stripe.com",
+    link: "/semesters",
   },
   {
     title: "Electronics & Communication Engineering ",
@@ -97,9 +97,9 @@ const Home = () => {
             </button>
           </div>
         </div>
-        <div className="w-full md:w-1/2 flex items-center justify-center  md:hidden">
+        <div className="w-full md:w-1/2 flex items-center justify-centerhidden">
           <img
-            src="/assets/girlworking.svg"
+            src="/assets/girl.svg"
             alt="Descriptive Text"
             className="w-3/4 h-auto max-w-sm"
           />
