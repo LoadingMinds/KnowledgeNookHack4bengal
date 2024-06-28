@@ -17,11 +17,12 @@ const ContactForm = () => (
       placeholder="Your Email"
       className="p-3 bg-gray-800 text-white rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-lightred transition-all"
     />
-    <textarea
+    <input
+      type="text"
       name="message"
-      placeholder="Your Message"
+      placeholder="Your Doubts"
       className="p-3 bg-gray-800 text-white rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-lightred transition-all"
-      rows={5}
+      
     />
     <button
       type="submit"
