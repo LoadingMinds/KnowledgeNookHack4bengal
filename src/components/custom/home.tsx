@@ -98,9 +98,9 @@ const Home = () => {
             </button>
           </div>
         </div>
-        <div className="w-full md:w-1/2 flex items-center justify-centerhidden">
+        <div className="w-full md:w-1/2 items-center justify-center hidden md:flex">
           <img
-            src="/assets/girl.svg"
+            src="/assets/girlworking2.svg"
             alt="Descriptive Text"
             className="w-3/4 h-auto max-w-sm"
           />
