@@ -19,15 +19,15 @@ function formatTime(timeString: string): string {
   return formattedParts.join(":");
 }
 type Video = {
-    index: string;
-    thumbnailUrl: string;
-    videoTitle: string;
-    videoLink: string;
-    channelName: string;
-    views: string;
-    uploadedTime: string;
-    videoTime: string;
-    videoDurationInSeconds: number;
+  index: string;
+  thumbnailUrl: string;
+  videoTitle: string;
+  videoLink: string;
+  channelName: string;
+  views: string;
+  uploadedTime: string;
+  videoTime: string;
+  videoDurationInSeconds: number;
   };
 type TVideoCard = {
   video: Video;
