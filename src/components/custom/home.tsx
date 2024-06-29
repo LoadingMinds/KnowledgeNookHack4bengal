@@ -1,6 +1,7 @@
 "use client";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { FlipWords } from "@/components/ui/flip-words";
+import BookLoader from '@/components/custom/bookanimation';
 import React, { useRef } from "react";
 
 const ContactForm = () => (
@@ -184,6 +185,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+
     </div>
   );
 };

@@ -18,10 +18,13 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
+    "composio": "^1.0.0",
     "framer-motion": "^11.2.12",
+    "gsap": "^3.12.5",
     "lucide-react": "^0.399.0",
     "next": "14.2.4",
     "react": "^18",
+    "react-animated-progress-bar": "^1.1.2",
     "react-dom": "^18",
     "tailwind-merge": "^2.3.0"
   },
