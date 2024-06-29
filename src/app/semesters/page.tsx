@@ -332,9 +332,9 @@ const Semester = ({ subjectCode, subjectName }: TSubjectCard) => {
           {currentData.playlist.map((playlist, index) => (
             <div key={index} className="flex flex-col items-center">
                 <Link
-      href={{ pathname: `/subject/${subjectName}`, query: { subjectCode } }}
+      href={{ pathname: `/playlist/${subjectName}`, query: { subjectCode } }}
       className="group relative block h-64 mx-2 md:mx-0"
-    > <PinContainer title={playlist.link} href={`/subject/${subjectName}?${new URLSearchParams({ subjectCode }).toString()}`}>
+    > <PinContainer title={playlist.link} href={`/playlist/${subjectName}?${new URLSearchParams({ subjectCode }).toString()}`}>
     <div className="flex h-fit flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[15rem] ">
       {/* <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
 {playlist.name}
