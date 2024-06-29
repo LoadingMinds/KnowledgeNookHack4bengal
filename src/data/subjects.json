@@ -1,27 +1,8 @@
 [
-    {
-      "subjectName": "Physics",
-      "subjectCode": "ph"
-    },
-    {
-      "subjectName": "Chemistry",
-      "subjectCode": "ch"
-    },
-    {
-      "subjectName": "Mathematics",
-      "subjectCode": "ma"
-    },
+    
     {
       "subjectName": "Electrical",
       "subjectCode": "ee"
-    },
-    {
-      "subjectName": "Programming",
-      "subjectCode": "pg"
-    },
-    {
-      "subjectName": "English",
-      "subjectCode": "eg"
     }
     
   ]

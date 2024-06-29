@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
-
+import subjects from "../../../data/subjects.json";
 import VideoAccordion from "@/components/custom/videoaccordion";
 import {
   SpeedCombobox,
@@ -12,23 +12,25 @@ import {
 } from "@/components/custom/optioncombobox";
 import { Button } from "@/components/ui/button";
 
+type Video = {
+  index: string;
+  thumbnailUrl: string;
+  videoTitle: string;
+  videoLink: string;
+  channelName: string;
+  views: string;
+  uploadedTime: string;
+  videoTime: string;
+  videoDurationInSeconds: number;
+};
+
 export default function Home({ params }: { params: { subjectName: string } }) {
   const searchParams = useSearchParams();
 
   const subject = decodeURIComponent(params.subjectName);
-  const subjectCode = searchParams.get("subjectCode");
-
-  type Video = {
-    index: string;
-    thumbnailUrl: string;
-    videoTitle: string;
-    videoLink: string;
-    channelName: string;
-    views: string;
-    uploadedTime: string;
-    videoTime: string;
-    videoDurationInSeconds: number;
-  };
+  const subjectEntry = subjects.find((sub) => sub.subjectName === subject);
+  console.log(subjectEntry); 
+  const subjectCode = subjectEntry ? subjectEntry.subjectCode : null;
 
   const data: Video[] = require("../../../data/" + subjectCode + ".json");
   const totalVideos = data.length;
@@ -124,7 +126,6 @@ export default function Home({ params }: { params: { subjectName: string } }) {
   }
 
   const totalDays = groupedVideos.length;
-
   const totalPages = Math.ceil(totalDays / daysPerPage);
   const startIndex = (currentPage - 1) * daysPerPage;
   const endIndex = startIndex + daysPerPage;

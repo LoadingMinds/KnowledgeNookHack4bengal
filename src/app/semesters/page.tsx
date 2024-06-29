@@ -4,6 +4,12 @@ import { cn } from "@/utils/cn";
 import { Spotlight } from "@/components/ui/spotlight";
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import { PinContainer } from "@/components/ui/3d-pin";
+import Link from "next/link";
+import subjects from "@/data/subjects.json"
+type TSubjectCard = {
+    subjectCode: string;
+    subjectName: string;
+  };
 // Define types
 interface Ebook {
   image: string;
@@ -249,7 +255,7 @@ const semesterData: Semesters[] = [
   },
 ];
 
-const Semester = () => {
+const Semester = ({ subjectCode, subjectName }: TSubjectCard) => {
   const [selectedSemester, setSelectedSemester] = useState<string>("Sem1");
 
   const handleButtonClick = (sem: string) => {
@@ -325,26 +331,34 @@ const Semester = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 ml-10">
           {currentData.playlist.map((playlist, index) => (
             <div key={index} className="flex flex-col items-center">
-              <PinContainer title={playlist.link} href={playlist.link}>
-                <div className="flex h-fit flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[15rem] ">
-                  {/* <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
-          {playlist.name}
-          </h3> */}
+                <Link
+      href={{ pathname: `/subject/${subjectName}`, query: { subjectCode } }}
+      className="group relative block h-64 mx-2 md:mx-0"
+    > <PinContainer title={playlist.link} href={`/subject/${subjectName}?${new URLSearchParams({ subjectCode }).toString()}`}>
+    <div className="flex h-fit flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[15rem] ">
+      {/* <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
+{playlist.name}
+</h3> */}
 
-                  <img
-                    src={playlist.image}
-                    alt={playlist.name}
-                    className="w-full h-full mb-2"
-                  />
-                  <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
-                    {playlist.name}
-                  </h3>
-                </div>
-              </PinContainer>
+      <img
+        src={playlist.image}
+        alt={playlist.name}
+        className="w-full h-full mb-2"
+      />
+      <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
+        {playlist.name}
+      </h3>
+    </div>
+  </PinContainer>
+  </Link>
             </div>
+            
           ))}
+          
         </div>
+        
       </div>
+      
     </section>
   );
 };
