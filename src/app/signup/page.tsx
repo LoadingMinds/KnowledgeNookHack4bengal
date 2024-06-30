@@ -69,12 +69,13 @@ const Page: React.FC = () => {
               />
             </div>
           </div>
-          <button
+          <Link href="/login"><button
             type="submit"
             className="w-[180px] p-2 bg-red text-white rounded-xl font-semibold font-Poppins items-center justify-center mt-4"
           >
             Submit
           </button>
+          </Link>
         </form>
       </div>
     </div>

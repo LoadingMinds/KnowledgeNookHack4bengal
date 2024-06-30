@@ -1,26 +1,76 @@
 "use client";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import { FlipWords } from "@/components/ui/flip-words";
-import React, { useRef } from "react";
+import emailjs from '@emailjs/browser';
+import Swal from 'sweetalert2';
+import BookLoader from '@/components/custom/bookanimation';
+import React, { useRef,useState } from "react";
 
-const ContactForm = () => (
-  <form className="flex flex-col gap-6">
+const ContactForm: React.FC = () => {
+const [formData, setFormData] = useState({
+  name: "",
+  email: "",
+  message: "",
+});
+const templateParams = {
+  from_name: formData.name,
+  to_email: formData.email,
+  message: formData.message
+}
+
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  try {
+    await emailjs.send("service_o4ob3yb","template_l5sadoe",templateParams,"OOFLPMIt8jYI3K23C");
+    Swal.fire({
+      title: "Thanks for connecting with us!",
+      text: "Please Check your inbox for further details.",
+      icon: "success"
+    });
+  } catch (error) {
+    console.error("Error sending email:", error);
+  }
+};
+
+const handleChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
+  const { name, value } = e.target;
+  setFormData((prev) => ({
+    ...prev,
+    [name]: value,
+  }));
+  console.log(formData);
+};
+
+return(
+  
+  <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+
     <input
       type="text"
       name="name"
       placeholder="Your Name"
+      onChange={handleChange}
+      value={formData.name}
       className="p-3 bg-gray-800 text-white rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-lightred transition-all"
     />
     <input
       type="email"
       name="email"
       placeholder="Your Email"
+      required
+      onChange={handleChange}
+      value={formData.email}
+      
+      
       className="p-3 bg-gray-800 text-white rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-lightred transition-all"
     />
     <input
       type="text"
       name="message"
       placeholder="Your Doubts"
+      required
+      onChange={handleChange}
+      value={formData.message}
       className="p-3 bg-gray-800 text-white rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-lightred transition-all"
       
     />
@@ -32,7 +82,7 @@ const ContactForm = () => (
     </button>
   </form>
 );
-
+}
 export const projects = [
   {
     title: "Computer Science & Engineering ",
@@ -184,6 +234,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+
     </div>
   );
 };

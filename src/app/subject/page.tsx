@@ -1,4 +1,4 @@
-import { Subjects } from "@/components/custom/Subjects";
+import  Subjects from "@/components/custom/Subjects";
 
 const Home = () => {
   return (

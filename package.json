@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@dynopii/callchimp": "^0.1.4",
+    "@emailjs/browser": "^4.3.3",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-checkbox": "^1.1.1",
     "@radix-ui/react-dialog": "^1.1.1",
@@ -21,11 +22,15 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
+    "composio": "^1.0.0",
     "framer-motion": "^11.2.12",
+    "gsap": "^3.12.5",
     "lucide-react": "^0.399.0",
     "next": "14.2.4",
     "react": "^18",
+    "react-animated-progress-bar": "^1.1.2",
     "react-dom": "^18",
+    "sweetalert2": "^11.12.1",
     "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
