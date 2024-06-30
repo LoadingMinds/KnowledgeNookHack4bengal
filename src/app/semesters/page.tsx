@@ -2,7 +2,8 @@
 import { useState } from "react";
 import { Spotlight } from "@/components/ui/spotlight";
 import { PinContainer } from "@/components/ui/3d-pin";
-
+import { Subjects } from "@/components/custom/Subjects";
+import CategoryCard from "@/components/custom/categorycard";
 // Define types
 interface Ebook {
   image: string;
@@ -14,6 +15,7 @@ interface Playlist {
   image: string;
   link: string;
   name: string;
+  slug:string;
 }
 
 interface SemesterData {
@@ -31,8 +33,8 @@ const semesterData: Semesters[] = [
       ebook: [
         {
           image: "/book logo/physic logo.png",
-          pdf: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Chemistry for Engineering",
+          pdf: "/bookdoc/physics ebook.pdf",
+          name: "Physics for Engineering",
         },
         {
           image: "/book logo/electrical logo.png",
@@ -47,201 +49,274 @@ const semesterData: Semesters[] = [
       ],
       playlist: [
         {
-          image: "/thumbnail/chemyoutube.png",
-          link: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Chemistry for Engineering",
+          image: "/thumbnail/physicsyoutube.png",
+          link: "/bookdoc/physics ebook.pdf",
+          name: "Physics for Engineering",
+          slug:"ph",
         },
         {
           image: "/thumbnail/electricalyoutube.png",
           link: "/bookdoc/basic electrical engineering ebook.pdf",
           name: "Basic Electrical Engineering",
+          slug:"ee",
         },
         {
           image: "/thumbnail/mathyoutube.png",
           link: "/bookdoc/basic electrical engineering ebook.pdf",
           name: "Maths for Engineering",
+          slug:"mt",
         },
       ],
     },
     Sem2: {
       ebook: [
+        
         {
-          image: "/book logo/electrical logo.png",
-          pdf: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Engineering",
+          image: "/book logo/chem logo.png",
+          pdf: "/bookdoc/Chemistry engineering ebook.pdf",
+          name: "Chemistry for Engineering",
         },
         {
-          image: "/book logo/electrical logo.png",
-          pdf: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Electrical Engineering",
+          image: "/book logo/c lang pic.png",
+          pdf: "/bookdoc/Let us c -ebook.pdf",
+          name: "C Programming",
+
         },
       ],
       playlist: [
         {
-          image: "/book logo/electrical logo.png",
-          link: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Electrical Engineering",
+          image: "/thumbnail/chemyoutube.png",
+          link: "https://www.youtube.com/playlist?list=PLW1Y7Rfg4m8Jhs-s_VfYWgWzwTqYUvxJb",
+          name: "Chemistry for Engineering",
+          slug:"ch",
         },
         {
-          image: "/book logo/electrical logo.png",
-          link: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Electrical Engineering",
+          image: "/book logo/english logo.png",
+          link: "/bookdoc/english ebook.pdf",
+          name: "English",
+          slug:"en",
+        },
+        {
+          image: "/book logo/c lang pic.png",
+          link: "/bookdoc/Let us c -ebook.pdf",
+          name: "C programming",
+          slug:"c",
         },
       ],
     },
     Sem3: {
       ebook: [
+        
         {
-          image: "/book logo/electrical logo.png",
-          pdf: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Engineering",
+          image: "/book logo/chem logo.png",
+          pdf: "/bookdoc/Chemistry engineering ebook.pdf",
+          name: "Chemistry for Engineering",
         },
         {
-          image: "/book logo/electrical logo.png",
-          pdf: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Electrical Engineering",
+          image: "/book logo/c lang pic.png",
+          pdf: "/bookdoc/Let us c -ebook.pdf",
+          name: "C Programming",
+
         },
       ],
       playlist: [
         {
-          image: "/book logo/electrical logo.png",
-          link: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Electrical Engineering",
+          image: "/thumbnail/chemyoutube.png",
+          link: "https://www.youtube.com/playlist?list=PLW1Y7Rfg4m8Jhs-s_VfYWgWzwTqYUvxJb",
+          name: "Chemistry for Engineering",
+          slug:"ch",
         },
         {
-          image: "/book logo/electrical logo.png",
-          link: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Electrical Engineering",
+          image: "/book logo/english logo.png",
+          link: "/bookdoc/english ebook.pdf",
+          name: "English",
+          slug:"en",
+        },
+        {
+          image: "/book logo/c lang pic.png",
+          link: "/bookdoc/Let us c -ebook.pdf",
+          name: "C programming",
+          slug:"c",
         },
       ],
     },
     Sem4: {
       ebook: [
+        
         {
-          image: "/book logo/electrical logo.png",
-          pdf: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Engineering",
+          image: "/book logo/chem logo.png",
+          pdf: "/bookdoc/Chemistry engineering ebook.pdf",
+          name: "Chemistry for Engineering",
         },
         {
-          image: "/book logo/electrical logo.png",
-          pdf: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Electrical Engineering",
+          image: "/book logo/c lang pic.png",
+          pdf: "/bookdoc/Let us c -ebook.pdf",
+          name: "C Programming",
+
         },
       ],
       playlist: [
         {
-          image: "/book logo/electrical logo.png",
-          link: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Electrical Engineering",
+          image: "/thumbnail/chemyoutube.png",
+          link: "https://www.youtube.com/playlist?list=PLW1Y7Rfg4m8Jhs-s_VfYWgWzwTqYUvxJb",
+          name: "Chemistry for Engineering",
+          slug:"ch",
         },
         {
-          image: "/book logo/electrical logo.png",
-          link: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Electrical Engineering",
+          image: "/book logo/english logo.png",
+          link: "/bookdoc/english ebook.pdf",
+          name: "English",
+          slug:"en",
+        },
+        {
+          image: "/book logo/c lang pic.png",
+          link: "/bookdoc/Let us c -ebook.pdf",
+          name: "C programming",
+          slug:"c",
         },
       ],
     },
     Sem5: {
       ebook: [
+        
         {
-          image: "/book logo/electrical logo.png",
-          pdf: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Engineering",
+          image: "/book logo/chem logo.png",
+          pdf: "/bookdoc/Chemistry engineering ebook.pdf",
+          name: "Chemistry for Engineering",
         },
         {
-          image: "/book logo/electrical logo.png",
-          pdf: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Electrical Engineering",
+          image: "/book logo/c lang pic.png",
+          pdf: "/bookdoc/Let us c -ebook.pdf",
+          name: "C Programming",
+
         },
       ],
       playlist: [
         {
-          image: "/book logo/electrical logo.png",
-          link: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Electrical Engineering",
+          image: "/thumbnail/chemyoutube.png",
+          link: "https://www.youtube.com/playlist?list=PLW1Y7Rfg4m8Jhs-s_VfYWgWzwTqYUvxJb",
+          name: "Chemistry for Engineering",
+          slug:"ch",
         },
         {
-          image: "/book logo/electrical logo.png",
-          link: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Electrical Engineering",
+          image: "/book logo/english logo.png",
+          link: "/bookdoc/english ebook.pdf",
+          name: "English",
+          slug:"en",
+        },
+        {
+          image: "/book logo/c lang pic.png",
+          link: "/bookdoc/Let us c -ebook.pdf",
+          name: "C programming",
+          slug:"c",
         },
       ],
     },
     Sem6: {
       ebook: [
+        
         {
-          image: "/book logo/electrical logo.png",
-          pdf: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Engineering",
+          image: "/book logo/chem logo.png",
+          pdf: "/bookdoc/Chemistry engineering ebook.pdf",
+          name: "Chemistry for Engineering",
         },
         {
-          image: "/book logo/electrical logo.png",
-          pdf: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Electrical Engineering",
+          image: "/book logo/c lang pic.png",
+          pdf: "/bookdoc/Let us c -ebook.pdf",
+          name: "C Programming",
+
         },
       ],
       playlist: [
         {
-          image: "/book logo/electrical logo.png",
-          link: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Electrical Engineering",
+          image: "/thumbnail/chemyoutube.png",
+          link: "https://www.youtube.com/playlist?list=PLW1Y7Rfg4m8Jhs-s_VfYWgWzwTqYUvxJb",
+          name: "Chemistry for Engineering",
+          slug:"ch",
         },
         {
-          image: "/book logo/electrical logo.png",
-          link: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Electrical Engineering",
+          image: "/book logo/english logo.png",
+          link: "/bookdoc/english ebook.pdf",
+          name: "English",
+          slug:"en",
+        },
+        {
+          image: "/book logo/c lang pic.png",
+          link: "/bookdoc/Let us c -ebook.pdf",
+          name: "C programming",
+          slug:"c",
         },
       ],
     },
     Sem7: {
       ebook: [
+        
         {
-          image: "/book logo/electrical logo.png",
-          pdf: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Engineering",
+          image: "/book logo/chem logo.png",
+          pdf: "/bookdoc/Chemistry engineering ebook.pdf",
+          name: "Chemistry for Engineering",
         },
         {
-          image: "/book logo/electrical logo.png",
-          pdf: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Electrical Engineering",
+          image: "/book logo/c lang pic.png",
+          pdf: "/bookdoc/Let us c -ebook.pdf",
+          name: "C Programming",
+
         },
       ],
       playlist: [
         {
-          image: "/book logo/electrical logo.png",
-          link: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Electrical Engineering",
+          image: "/thumbnail/chemyoutube.png",
+          link: "https://www.youtube.com/playlist?list=PLW1Y7Rfg4m8Jhs-s_VfYWgWzwTqYUvxJb",
+          name: "Chemistry for Engineering",
+          slug:"ch",
         },
         {
-          image: "/book logo/electrical logo.png",
-          link: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Electrical Engineering",
+          image: "/book logo/english logo.png",
+          link: "/bookdoc/english ebook.pdf",
+          name: "English",
+          slug:"en",
+        },
+        {
+          image: "/book logo/c lang pic.png",
+          link: "/bookdoc/Let us c -ebook.pdf",
+          name: "C programming",
+          slug:"c",
         },
       ],
     },
     Sem8: {
       ebook: [
+        
         {
-          image: "/book logo/electrical logo.png",
-          pdf: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Engineering",
+          image: "/book logo/chem logo.png",
+          pdf: "/bookdoc/Chemistry engineering ebook.pdf",
+          name: "Chemistry for Engineering",
         },
         {
-          image: "/book logo/electrical logo.png",
-          pdf: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Electrical Engineering",
+          image: "/book logo/c lang pic.png",
+          pdf: "/bookdoc/Let us c -ebook.pdf",
+          name: "C Programming",
+
         },
       ],
       playlist: [
         {
-          image: "/book logo/electrical logo.png",
-          link: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Electrical Engineering",
+          image: "/thumbnail/chemyoutube.png",
+          link: "https://www.youtube.com/playlist?list=PLW1Y7Rfg4m8Jhs-s_VfYWgWzwTqYUvxJb",
+          name: "Chemistry for Engineering",
+          slug:"ch",
         },
         {
-          image: "/book logo/electrical logo.png",
-          link: "/bookdoc/basic electrical engineering ebook.pdf",
-          name: "Basic Electrical Engineering",
+          image: "/book logo/english logo.png",
+          link: "/bookdoc/english ebook.pdf",
+          name: "English",
+          slug:"en",
+        },
+        {
+          image: "/book logo/c lang pic.png",
+          link: "/bookdoc/Let us c -ebook.pdf",
+          name: "C programming",
+          slug:"c",
         },
       ],
     },
@@ -322,24 +397,11 @@ const Semester = () => {
         </div>
         <h2 className="text-[24px] sm:text-[30px] font-medium text-text py-4 sm:py-10 text-center">Playlists</h2>
         <div className="flex flex-wrap gap-4 items-center justify-center">
-          {currentData.playlist.map((playlist, index) => (
-            <div key={index} className="flex flex-col items-center transform transition-transform duration-200 hover:scale-105">
-              <PinContainer title={playlist.link} href={playlist.link}>
-                <div className="flex h-fit flex-col p-4 tracking-tight text-slate-100/50 w-[15rem] sm:w-[12rem] sm:h-[15rem] items-center">
-                  <img
-                    src={playlist.image}
-                    alt={playlist.name}
-                    className="w-full h-full mb-2"
-                  />
-                  <h3 className="max-w-xs !pb-2 !m-0 font-bold text-base text-slate-100  text-center">
-                    {playlist.name}
-                  </h3>
-                </div>
-              </PinContainer>
-            </div>
-          ))}
+            
+          <CategoryCard/>
         </div>
       </div>
+      {/* <Subjects /> */}
     </section>
   );
 };
