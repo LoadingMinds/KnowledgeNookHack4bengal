@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Spotlight } from "@/components/ui/spotlight";
 import { PinContainer } from "@/components/ui/3d-pin";
-import { Subjects } from "@/components/custom/Subjects";
+import Subjects  from "@/components/custom/Subjects";
 import CategoryCard from "@/components/custom/categorycard";
 // Define types
 interface Ebook {
